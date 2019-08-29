@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/syedabdullah912/MEAN-Project#readme",
   "dependencies": {
+    "angular": "^1.7.8",
+    "angular2": "^2.0.0-beta.21",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
