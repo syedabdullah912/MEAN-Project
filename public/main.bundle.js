@@ -731,7 +731,7 @@ module.exports = "<h2 class='page-header'>Dashboard</h2>\n<div *ngIf=\"user\">\n
 /***/ 694:
 /***/ (function(module, exports) {
 
-module.exports = "<div class='jumbotron text-center'>\n  <h1>MEAN-Project</h1>\n  <p>Welcome to our MEAN-Project</p>\n  <div>\n      <a class='btn btn-primary'[routerLink]=\"['/register']\">Register</a> <a class='btn btn-primary' [routerLink]=\"['/login']\">Login</a>\n  </div>\n</div>  "
+module.exports = "<div class='jumbotron text-center'>\n  <h1>Finance Manager</h1>\n  <p>Welcome</p>\n  <div>\n      <a class='btn btn-primary'[routerLink]=\"['/register']\">Register</a> <a class='btn btn-primary' [routerLink]=\"['/login']\">Login</a>\n  </div>\n</div>  "
 
 /***/ }),
 
