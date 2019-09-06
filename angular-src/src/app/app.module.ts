@@ -16,14 +16,15 @@ import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
-import {AuthGaurd} from './guards/auth.guard';
+import {AuthGuard} from './guards/auth.guard';
+import { ValidGuard } from './guards/valid.guard';
 
 const appRoutes: Routes = [
   {path:'',component:HomeComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'login',component:LoginComponent},
-  {path:'dashboard',component:DashboardComponent, canActivate:[AuthGaurd]}, // not open without login
-  {path:'profile',component:ProfileComponent, canActivate:[AuthGaurd]}      // not open without login
+  {path:'register',component:RegisterComponent, canActivate:[ValidGuard]},   // not open when loginIn.
+  {path:'login',component:LoginComponent, canActivate:[ValidGuard]},         // not open when loginIn.
+  {path:'dashboard',component:DashboardComponent, canActivate:[AuthGuard]},  // not open when loggedOut.
+  {path:'profile',component:ProfileComponent, canActivate:[AuthGuard]}       // not open when loggedOut.
 ]
 
 @NgModule({
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [ValidateService, AuthService,AuthGaurd],
+  providers: [ValidateService, AuthService,AuthGuard,ValidGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

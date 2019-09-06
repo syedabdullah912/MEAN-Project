@@ -54,5 +54,9 @@ export class AuthService {
     this.authToken = null;
     this.user = null;
     localStorage.clear();
+    return tokenNotExpired('id_token');
+       
   }
+
+
 }
