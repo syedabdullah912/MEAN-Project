@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ExpenseComponent } from './components/expense/expense.component';
 
 import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
   {path:'register',component:RegisterComponent, canActivate:[ValidGuard]},   // not open when loginIn.
   {path:'login',component:LoginComponent, canActivate:[ValidGuard]},         // not open when loginIn.
   {path:'dashboard',component:DashboardComponent, canActivate:[AuthGuard]},  // not open when loggedOut.
-  {path:'profile',component:ProfileComponent, canActivate:[AuthGuard]}       // not open when loggedOut.
+  {path:'profile',component:ProfileComponent, canActivate:[AuthGuard]},       // not open when loggedOut.
+  {path:'expense',component:ExpenseComponent, canActivate:[AuthGuard]}  // not open when loginIn.
 ]
 
 @NgModule({
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     HomeComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    ExpenseComponent
   ],
   imports: [
     BrowserModule,

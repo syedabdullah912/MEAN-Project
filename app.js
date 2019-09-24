@@ -22,11 +22,9 @@ const app = express();
 const users = require('./routes/users');
 
 // port
-const port = process.env.PORT || 8080; //for heroku
-//const port= 3000;                        //for localhost
+const port= 3000;
 
 // cors middleware
-
 app.use(cors());
 
 //set static folder
@@ -38,6 +36,7 @@ app.use(bodyParser.json());
 //passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
 require('./config/passport')(passport);
 
 app.use('/users',users);
@@ -45,7 +44,6 @@ app.use('/users',users);
 
 //index routes
 app.get('/',(req,res)=>{
-    
     res.send('invalid-endpoint');
 });
 
@@ -57,4 +55,3 @@ app.get('/',(req,res)=>{
 app.listen(port,()=>{
     console.log('server running on port '+port);
 });
-
