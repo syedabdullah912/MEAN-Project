@@ -4,10 +4,12 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const User = require('../models/user');
+const Expense = require('../models/expense');
 
 // Register
 router.post('/register', (req, res, next) => {
   let newUser = new User ({
+    
     name: req.body.name,
     email: req.body.email,
     username: req.body.username,
@@ -60,6 +62,36 @@ router.post('/authenticate', (req, res, next) => {
 // Profile
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
   res.json({user: req.user});
+});
+//Expense
+router.post('/addExpense', passport.authenticate('jwt', {
+  session: false
+}), (req, res, next) => {
+  const newExpense = new Expense({
+    
+   
+    amount: req.body.amount,
+    category:req.body.category,
+    description:req.body.description,
+    paymentMethod:req.body.paymentMethod
+  
+
+  });
+
+  Expense.addExpense(newExpense, (err, expense) => {
+    if (err) {
+      res.json({
+        success: false,
+        msg: 'Failed to add new Expense'
+    
+      });
+    } else {
+      res.json({
+        success: true,
+        msg: 'Expense is added'
+      });
+    }
+  });
 });
 
 module.exports = router;
