@@ -18,7 +18,8 @@ mongoose.connection.on('error',(err) => {
 const app = express();
 const users = require('./routes/users');
 // port
-const port= 3000;
+//const port= 3000;
+const port = process.env.PORT || 8080;
 // cors middleware
 app.use(cors());
 //set static folder
