@@ -90,8 +90,8 @@ router.post('/addExpense', passport.authenticate('jwt', {
   });
 });
 
-// expense-veiw
-router.get('/veiw', passport.authenticate('jwt', {session:false}) , (req, res) => {
+// expense-view
+router.get('/view', passport.authenticate('jwt', {session:false}) , (req, res) => {
  Expense.find({user:req.user}).exec((err,expenses) => {
     if (err) return next(err);
     res.json({expenses});

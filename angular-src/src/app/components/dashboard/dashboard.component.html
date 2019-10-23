@@ -2,10 +2,11 @@
 <h2 class='page-header'>Dashboard</h2>
 <div *ngIf="user">
     <h4>Hello {{user.name}}</h4>
-    
-
-
-    
-    
-
-</div>
+    </div>
+  
+                <div>
+                    <a class='btn btn-primary'[routerLink]="['/expense']">Add Expense</a>
+                    <a class='btn btn-primary' [routerLink]="['/view']">View Expense</a>
+            </div>
+         
+          

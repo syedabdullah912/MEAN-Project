@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-veiw',
-  templateUrl: './veiw.component.html',
-  styleUrls: ['./veiw.component.css']
+  selector: 'app-view',
+  templateUrl: './view.component.html',
+  styleUrls: ['./view.component.css']
   
 })
 
-export class VeiwComponent implements OnInit {
+export class ViewComponent implements OnInit {
 
 expense:Object;
 total: Number;
@@ -18,10 +18,10 @@ total: Number;
 
   ngOnInit() {
 // expense detail of login user 
-    this.authService.getVeiw().subscribe(veiw => {
-     const qwe = this.expense=veiw.expenses;
+    this.authService.getView().subscribe(view => {
+     const addition = this.expense=view.expenses;
 // total expense of login user
-      let total = qwe.reduce((sum, item) => sum + item.amount, 0);
+      let total = addition.reduce((sum, item) => sum + item.amount, 0);
       this.total = total;
 
       });

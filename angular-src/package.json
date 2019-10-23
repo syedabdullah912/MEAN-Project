@@ -26,6 +26,7 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.4.1",
     "ng-sidebar": "^9.1.1",
+    "ngx-bootstrap": "^5.2.0",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.7.2"

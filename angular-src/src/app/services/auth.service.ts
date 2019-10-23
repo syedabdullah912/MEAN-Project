@@ -49,12 +49,12 @@ export class AuthService {
       .map(res => res.json());
   }
 
-  getVeiw() {
+  getView() {
     let headers = new Headers();
     this.loadToken();
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type','application/json');
-    return this.http.get('http://localhost:3000/users/veiw', {headers: headers})
+    return this.http.get('http://localhost:3000/users/view', {headers: headers})
       .map(res => res.json());
   }
     storeUserData(token, user) {

@@ -12,7 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ExpenseComponent } from './components/expense/expense.component';
-import { VeiwComponent } from './components/veiw/veiw.component';
+import { ViewComponent } from './components/view/view.component';
 
 import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
@@ -29,7 +29,7 @@ const appRoutes: Routes = [
   {path:'dashboard',component:DashboardComponent, canActivate:[AuthGuard]},  // not open when loggedOut.
   {path:'profile',component:ProfileComponent, canActivate:[AuthGuard]},       // not open when loggedOut.
   {path:'expense',component:ExpenseComponent, canActivate:[AuthGuard]},  // not open when loginIn.
-  {path:'veiw',component:VeiwComponent, canActivate:[AuthGuard]}           // not open when loginIn.
+  {path:'view',component:ViewComponent, canActivate:[AuthGuard]}           // not open when loginIn.
 ]
 
 @NgModule({
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     DashboardComponent,
     ProfileComponent,
     ExpenseComponent,
-    VeiwComponent
+    ViewComponent
   ],
   imports: [
     BrowserModule,
