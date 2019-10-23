@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ExpenseComponent } from './components/expense/expense.component';
+import { VeiwComponent } from './components/veiw/veiw.component';
 
 import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
@@ -20,13 +21,15 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import {AuthGuard} from './guards/auth.guard';
 import { ValidGuard } from './guards/valid.guard';
 
+
 const appRoutes: Routes = [
   {path:'',component:HomeComponent},
   {path:'register',component:RegisterComponent, canActivate:[ValidGuard]},   // not open when loginIn.
   {path:'login',component:LoginComponent, canActivate:[ValidGuard]},         // not open when loginIn.
   {path:'dashboard',component:DashboardComponent, canActivate:[AuthGuard]},  // not open when loggedOut.
   {path:'profile',component:ProfileComponent, canActivate:[AuthGuard]},       // not open when loggedOut.
-  {path:'expense',component:ExpenseComponent, canActivate:[AuthGuard]}  // not open when loginIn.
+  {path:'expense',component:ExpenseComponent, canActivate:[AuthGuard]},  // not open when loginIn.
+  {path:'veiw',component:VeiwComponent, canActivate:[AuthGuard]}           // not open when loginIn.
 ]
 
 @NgModule({
@@ -38,7 +41,8 @@ const appRoutes: Routes = [
     HomeComponent,
     DashboardComponent,
     ProfileComponent,
-    ExpenseComponent
+    ExpenseComponent,
+    VeiwComponent
   ],
   imports: [
     BrowserModule,

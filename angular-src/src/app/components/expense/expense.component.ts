@@ -10,7 +10,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./expense.component.css']
 })
 export class ExpenseComponent implements OnInit {
-  amount:String;
+  amount:Number;
+  user:Object;
   category:String;
   description:String;
   paymentMethod:string;  
@@ -22,11 +23,17 @@ export class ExpenseComponent implements OnInit {
       private router: Router
       ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.authService.getProfile().subscribe(profile => {
+      this.user = profile.user;
+    
+    });
+  }
 
   onExpenseSubmit(){
     const expense={
       amount:this.amount,
+      user:this.user,
       category:this.category,
       description:this.description,
       paymentMethod:this.paymentMethod
@@ -41,7 +48,7 @@ export class ExpenseComponent implements OnInit {
         this.router.navigate(['/expense']);
       }
     });
-    this.amount="";
+    this.amount=null;
     this.category="";
     this.description="";
     this.paymentMethod="";

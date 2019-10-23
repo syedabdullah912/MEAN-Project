@@ -1,0 +1,33 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div *ngIf="user">
+  <h2>Expenses by {{user.name}}</h2>
+</div>
+<table class="table table-striped">
+   <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Category</th>
+      <th scope="col">Description</th>
+      <th scope="col">paymentMethod</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let exp of expense;let i = index">
+      <td>{{i+1}}</td>
+      <td>{{exp.amount}}</td>
+      <td>{{exp.category}}</td>
+      <td>{{exp.description}}</td>
+      <td>{{exp.paymentMethod}}</td>
+     </tr>
+   </tbody>
+   <tfoot>
+      <tr *ngIf="total">
+          <th>Total</th>
+          <td>{{total}}</td>
+        </tr>
+   </tfoot>
+</table>
+
+
+

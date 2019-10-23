@@ -1,16 +1,11 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  
+<h2 class='page-header'>Dashboard</h2>
+<div *ngIf="user">
+    <h4>Hello {{user.name}}</h4>
+    
 
 
-<div id="noty-holder"></div>
-<div id="wrapper">
-              <ul class="nav navbar-nav side-nav">
-                <li>
-                    <a href="/expense">Expense</a>
-                    </li>
-                  <li>
-                    <a href="/income">Income</a>
-                </li>
-              </ul>
+    
+    
+
 </div>

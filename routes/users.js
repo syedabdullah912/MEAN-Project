@@ -35,7 +35,6 @@ router.post('/authenticate', (req, res, next) => {
     if(!user) {
       return res.json({success: false, msg: 'User not found'});
     }
-
     User.comparePassword(password, user.password, (err, isMatch) => {
       if(err) throw err;
       if(isMatch) {
@@ -50,7 +49,7 @@ router.post('/authenticate', (req, res, next) => {
             name: user.name,
             username: user.username,
             email: user.email
-          }
+           }
         })
       } else {
         return res.json({success: false, msg: 'Wrong password'});
@@ -63,35 +62,41 @@ router.post('/authenticate', (req, res, next) => {
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
   res.json({user: req.user});
 });
+
 //Expense
 router.post('/addExpense', passport.authenticate('jwt', {
   session: false
 }), (req, res, next) => {
-  const newExpense = new Expense({
-    
-   
+  const newExpense = new Expense({  
     amount: req.body.amount,
+    user: req.body.user,
     category:req.body.category,
     description:req.body.description,
-    paymentMethod:req.body.paymentMethod
-  
+    paymentMethod:req.body.paymentMethod});
 
-  });
-
-  Expense.addExpense(newExpense, (err, expense) => {
+  Expense.addExpense(newExpense, (err, expense,next) => {
     if (err) {
       res.json({
         success: false,
-        msg: 'Failed to add new Expense'
-    
+        msg: 'Failed to add new Expense'    
       });
     } else {
       res.json({
         success: true,
-        msg: 'Expense is added'
+        msg: 'Expense is added',
+       
       });
     }
   });
 });
 
+// expense-veiw
+router.get('/veiw', passport.authenticate('jwt', {session:false}) , (req, res) => {
+ Expense.find({user:req.user}).exec((err,expenses) => {
+    if (err) return next(err);
+    res.json({expenses});
+      });
+});    
+
 module.exports = router;
+
