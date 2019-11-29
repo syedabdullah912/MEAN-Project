@@ -1,2 +1,3 @@
 # MEAN-Project
- MongoDB+Express+Angular2+NodeJs
+expense manager
+Demo: https://peaceful-sands-82802.herokuapp.com
